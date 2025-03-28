@@ -18,3 +18,20 @@ final class Pet {
         self.photo = photo
     }
 }
+
+extension Pet {
+    @MainActor
+    static var preview: ModelContainer {
+        let configutation = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try! ModelContainer(for: Pet.self, configurations: configutation)
+        
+        container.mainContext.insert(Pet(name: "Rexy"))
+        container.mainContext.insert(Pet(name: "Eros"))
+        container.mainContext.insert(Pet(name: "Tobia"))
+        container.mainContext.insert(Pet(name: "Max"))
+        container.mainContext.insert(Pet(name: "Sky"))
+        container.mainContext.insert(Pet(name: "Pippo"))
+        
+        return container
+    }
+}
