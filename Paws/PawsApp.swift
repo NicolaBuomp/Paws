@@ -11,7 +11,8 @@ import SwiftUI
 struct PawsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
-        }
+                    ContentView()
+                        .modelContainer(for: [Pet.self])
+                }
     }
 }

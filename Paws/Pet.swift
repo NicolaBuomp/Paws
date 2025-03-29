@@ -22,8 +22,8 @@ final class Pet {
 extension Pet {
     @MainActor
     static var preview: ModelContainer {
-        let configutation = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try! ModelContainer(for: Pet.self, configurations: configutation)
+        let configuration = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try! ModelContainer(for: Pet.self, configurations: configuration)
         
         container.mainContext.insert(Pet(name: "Rexy"))
         container.mainContext.insert(Pet(name: "Eros"))
